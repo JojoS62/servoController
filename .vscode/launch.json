@@ -3,7 +3,7 @@
     "configurations": [
         {
             "cwd": "${workspaceRoot}",
-            "executable": "./BUILD/DISCO_F769NI/GCC_ARM-DEBUG/${workspaceFolderBasename}.elf",
+            "executable": "../../BUILD/${workspaceFolderBasename}/DEBUG/${workspaceFolderBasename}.elf",
             "name": "Debug via JLink",
             "request": "launch",
             "type": "cortex-debug",
@@ -11,7 +11,7 @@
         },
         {
             "cwd": "${workspaceRoot}",
-            "executable": "./BUILD/DISCO_F746NG/GCC_ARM-DEBUG/${workspaceFolderBasename}.elf",
+            "executable": "../../BUILD/${workspaceFolderBasename}/DEBUG/${workspaceFolderBasename}.elf",
             "name": "Debug via pyOCD",
             "request": "launch",
             "type": "cortex-debug",
@@ -19,7 +19,7 @@
         },
         {
             "cwd": "${workspaceRoot}",
-            "executable": "./BUILD/DISCO_F769NI/GCC_ARM-DEBUG/${workspaceFolderBasename}.elf",
+            "executable": "../../BUILD/${workspaceFolderBasename}/DEBUG/${workspaceFolderBasename}.elf",
             "name": "Debug via stutil",
             "request": "launch",
             "type": "cortex-debug",
@@ -29,14 +29,14 @@
         },
         {
             "cwd": "${workspaceRoot}",
-            "executable": "./BUILD/DISCO_F746NG/GCC_ARM-DEBUG/${workspaceFolderBasename}.elf",
+            "executable": "../../BUILD/${workspaceFolderBasename}/DEBUG/${workspaceFolderBasename}.elf",
             "name": "Debug via openocd",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
             "configFiles": [
-                "../scripts/interface/stlink-v2-1.cfg",
-                "../scripts/target/stm32f7x.cfg"
+                "../scripts/interface/stlink-v2.cfg",
+                "../scripts/target/stm32f4x.cfg"
             ]
         },
         {
@@ -110,36 +110,33 @@
         },
         {
             "cwd": "${workspaceRoot}",
-            "name": "debug Cortex-Debug STM32Black",
-            "BMPGDBSerialPort": "//./COM12",
+            "name": "debug Cortex-Debug",
+            "BMPGDBSerialPort": "//./COM5",
             "interface": "swd",
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "bmp",
-            "device": "STM32F407VE",
-            "executable": "./BUILD/STM32F407VE_BLACK/GCC_ARM-DEBUG/${workspaceFolderBasename}.elf"
+            "executable": "../../BUILD/${workspaceFolderBasename}/DEBUG/${workspaceFolderBasename}.elf"
         },
         {
             "cwd": "${workspaceRoot}",
-            "name": "release Cortex-Debug STM32Black",
-            "BMPGDBSerialPort": "//./COM12",
+            "name": "release Cortex-Debug",
+            "BMPGDBSerialPort": "//./COM5",
             "interface": "swd",
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "bmp",
-            "device": "STM32F407VE",
-            "executable": "./BUILD/STM32F407VE_BLACK/GCC_ARM-RELEASE/${workspaceFolderBasename}.elf"
+            "executable": "../../BUILD/${workspaceFolderBasename}/Release/${workspaceFolderBasename}.elf"
         },
         {
             "cwd": "${workspaceRoot}",
-            "name": "develop Cortex-Debug STM32Black",
-            "BMPGDBSerialPort": "//./COM12",
+            "name": "develop Cortex-Debug",
+            "BMPGDBSerialPort": "//./COM5",
             "interface": "swd",
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "bmp",
-            "device": "STM32F407VE",
-            "executable": "./BUILD/STM32F407VE_BLACK/GCC_ARM-DEVELOP/${workspaceFolderBasename}.elf"
+            "executable": "../../BUILD/${workspaceFolderBasename}/Develop/${workspaceFolderBasename}.elf"
         }
     ]
 }
