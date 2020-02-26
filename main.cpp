@@ -1,7 +1,8 @@
 #include "mbed.h"
 
-Serial com1(PA_2, PA_3, 115200);
-Serial com2(PA_9, PA_10, 115200);
+//RawSerial com1(PA_2, PA_3, 115200);
+RawSerial com2(PA_2, PA_3, 115200);
+RawSerial com1(PB_6, PB_7, 115200);
 
 DigitalOut led1(LED1);
 
@@ -40,6 +41,8 @@ void rxEvent(int serialEvent) {
 
 int main() 
 {
+    com1.printf("hello world\n");
+
     queue = mbed_event_queue();
 
     com1.puts("Hello com1\n");
@@ -49,6 +52,9 @@ int main()
     startReading();
 
     // dispatch events
-    queue->dispatch_forever();
+    while(1) {
+        led1 = !led1;
+        queue->dispatch(50);
+    }
 }
 
