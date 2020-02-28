@@ -37,15 +37,17 @@
                 "--source",
                 "../../mbed-os",
                 "--source",
-                "../../libs",
-                "--source",
                 "../../drivers",
+                "--source",
+                "../../libs",
                 "--source",
                 "../../custom_targets",
                 "--source",
                 "../../components",
                 "--profile",
-                "release"
+                "release",
+                "--profile",
+                "../../mbed-os/tools/profiles/extensions/lto.json"
             ]
         },
         {
@@ -65,6 +67,8 @@
                 "../../mbed-os",
                 "--source",
                 "../../drivers",
+                "--source",
+                "../../libs",
                 "--source",
                 "../../custom_targets",
                 "--source",
