@@ -1,7 +1,8 @@
 {
-    "requires": ["bare-metal", "rtos-api"],
+    "requires": ["bare-metal", "events"],
     "target_overrides": {
         "*": {
+            "target.c_lib": "small",
             "target.printf_lib": "standard-printf",
             "platform.stdio-baud-rate": 115200,
             "platform.stdio-convert-newlines": true
