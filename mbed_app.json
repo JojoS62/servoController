@@ -1,7 +1,8 @@
 {
-    "requires": ["bare-metal", "events"],
+    "requires": ["bare-metal", "rtos-api"],
     "target_overrides": {
         "*": {
+            "target.printf_lib": "standard-printf",
             "platform.stdio-baud-rate": 115200,
             "platform.stdio-convert-newlines": true
         },
@@ -9,12 +10,17 @@
             "target.device_has_remove": ["STDIO_MESSAGES"]
         },
         "BLUEPILL_F103CB": {
-            "target.c_lib": "small",
-            "target.stdio_uart_rx": "PA_3",
-            "target.stdio_uart_tx": "PA_2"
         },
         "BLUEPILL_F103C8": {
-            "target.c_lib": "small"
-        }      
+        },      
+        "LPC812": {
+            "target.tickless-from-us-ticker": true
+        },
+        "LPC824": {
+            "target.tickless-from-us-ticker": true
+        },      
+        "WEACT_F411CE": {
+            "target.tickless-from-us-ticker": true
+        }
     }
 }
