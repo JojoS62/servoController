@@ -73,6 +73,8 @@
                 "../../mbed-os",
                 "--source",
                 "../../custom_targets",
+                "--source",
+                "../../libs",
                 "--profile",
                 "release"
             ]
