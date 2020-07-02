@@ -19,6 +19,7 @@
 #define CID_POS_TURN        9
 #define CID_POS_TILT        10
 #define CID_SPEED           11
+#define CID_TEST_INT        12
 
 static const cmd user_cmd[] = {
     {"pos",         SUBSYSTEM,  CID_POS             , ""            , "* pos Subsystem"},
@@ -31,7 +32,8 @@ static const cmd user_cmd[] = {
     {"print",       CID_POS,    CID_POS_PRINT       , ""            , "print setup"},
     {"turn",        CID_POS,    CID_POS_TURN        , "%f"          , "set pos turn value"},
     {"tilt",        CID_POS,    CID_POS_TILT        , "%f"          , "set pos tilt value"},
-    {"speed",       GLOBALCMD,  CID_SPEED           , "%f"          , "set motor speed"}
+    {"speed",       GLOBALCMD,  CID_SPEED           , "%f"          , "set motor speed"},
+    {"testint",     GLOBALCMD,  CID_TEST_INT        , "%i"          , "set test int"}
 };
 
 Console::Console(BufferedSerial *serial) :
@@ -45,6 +47,10 @@ Console::Console(BufferedSerial *serial) :
  * @parm cmdb the command interpreter object.
  * @parm cid the command id.
  */
+
+float turn;
+float tilt;
+
 void Console::dispatcher(Cmdb& cmdb, int cid)
 {
     //cmdb.printf("my_dispatcher: cid=%d\r\n", cid);
@@ -85,15 +91,23 @@ void Console::dispatcher(Cmdb& cmdb, int cid)
             //send_main_message(MSG_PID_PRINT, 0, 0.0f);
             break;
         case CID_POS_TURN:
-            cmdb.printf("my_dispatcher: parm 0=%f\r\n", cmdb.FLOATPARM(0));
-            //send_main_message(MSG_PID_KP, 0, cmdb.FLOATPARM(0));
+            if (cmdb.isAssignement() && cmdb.argsFound()==1) {
+                turn = cmdb.FLOATPARM(0);
+            }
+            printf(" turn: %f\r\n", turn);
             break;
         case CID_POS_TILT:
-            cmdb.printf("my_dispatcher: parm 0=%f\r\n", cmdb.FLOATPARM(0));
-            //send_main_message(MSG_PID_KI, 0, cmdb.FLOATPARM(0));
+            if (cmdb.isAssignement() && cmdb.argsFound()==1) {
+                tilt = cmdb.FLOATPARM(0);
+            }
+            printf(" turn: %f\r\n", tilt);
             break;
         case CID_SPEED :
             //end_main_message(MSG_SPEED, 0, cmdb.FLOATPARM(0));
+            break;
+        case CID_TEST_INT:
+            cmdb.printf("my_dispatcher: parm 0=%i\r\n", cmdb.INTPARM(0));
+            //send_main_message(MSG_PID_KI, 0, cmdb.FLOATPARM(0));
             break;
         default:
             printf("unknown CID=%u\r\n", cid);

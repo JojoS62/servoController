@@ -1,0 +1,11 @@
+{
+  "name": "httpservo",
+  "version": "1.0.0",
+  "description": "http servo controller",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
