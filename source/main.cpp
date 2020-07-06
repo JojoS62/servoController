@@ -1,5 +1,6 @@
 #include "mbed.h"
 #include "console.h"
+#include "Test_MAX72xx.h"
 
 DigitalIn  btn0(USER_BUTTON, PullUp);
 int btnOld;
@@ -55,6 +56,11 @@ int main()
 
     servoTilt.period_ms(20);
     servoTilt.pulsewidth_us(posTilt);
+
+    setup();
+    while(true) {
+        loop();
+    }
 
     btnOld = btn0;
     // dispatch events
