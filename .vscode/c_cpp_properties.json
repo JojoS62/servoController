@@ -2,7 +2,7 @@
     "configurations": [
         {
             "forcedInclude": [
-                "${workspaceFolder}/BUILD/NUCLEO_F103RB/GCC_ARM-DEBUG/mbed_config.h"
+                "${workspaceFolder}/BUILD/WEACT_F411CE/GCC_ARM-DEBUG/mbed_config.h"
             ],
             "name": "Windows",
             "includePath": [
@@ -11,6 +11,8 @@
                 "${workspaceFolder}/../../components/COMPONENT_SDIO/util/*",
                 "${workspaceFolder}/../../custom_targets/TARGET_STM/TARGET_STM32F4/TARGET_STM32F407xE/TARGET_STM32F407VE_BLACK/*",
                 "${workspaceFolder}/../../libs/*",
+                "${workspaceFolder}/../../libs/MD_Parola/src/*",
+                "${workspaceFolder}/../../libs/MD_MAX72XX/src/*",
                 "${workspaceFolder}/../../libs/Adafruit-GFX-Library/*",
                 "${workspaceFolder}/../../libs/Adafruit-GFX-Library/Fonts/*",
                 "${workspaceFolder}/../../libs/Adafruit_ADS1015/*",
