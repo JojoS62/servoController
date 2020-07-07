@@ -29,7 +29,8 @@
 			"*.tcc": "cpp",
 			"fstream": "cpp",
 			"xstring": "cpp",
-			"list": "cpp"
+			"list": "cpp",
+			"chrono": "cpp"
 		}
 	}
 }
