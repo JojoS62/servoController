@@ -58,10 +58,7 @@
         },
         {
             "label": "compile release",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "command": "mbed",
             "args": [
                 "compile",
@@ -101,7 +98,10 @@
         },
         {
             "label": "compile debug",
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "command": "mbed",
             "args": [
                 "compile",
@@ -113,6 +113,8 @@
                 "../../mbed-os",
                 "--source",
                 "../../custom_targets",
+                "--source",
+                "../../libs",
                 "--profile",
                 "debug"
             ]
@@ -131,6 +133,8 @@
                 "../../mbed-os",
                 "--source",
                 "../../custom_targets",
+                "--source",
+                "../../libs",
                 "--profile",
                 "develop"
             ]
@@ -143,7 +147,22 @@
             "label": "list config options",
             "group": "build",
             "command": "mbed",
-            "args": ["compile", "--config", "--source", ".", "--source",  "../../mbed-os", "--source", "../../libs", "--source", "../../drivers", "--source", "../../custom_targets", "--source", "../../components"]
+            "args": [
+                "compile",
+                "--config",
+                "--source",
+                ".",
+                "--source",
+                "../../mbed-os",
+                "--source",
+                "../../libs",
+                "--source",
+                "../../drivers",
+                "--source",
+                "../../custom_targets",
+                "--source",
+                "../../components"
+            ]
         }
     ]
 }
