@@ -1,6 +1,8 @@
 {
+    "requires": ["bare-metal", "events", "mbed-trace", "spif-driver", "fat_chan", "filesystem", "littlefs2"],
     "target_overrides": {
         "*": {
+            "target.c_lib": "std",
             "target.printf_lib": "minimal-printf",
             "platform.minimal-printf-enable-floating-point": true,
             "platform.stdio-baud-rate": 115200,
