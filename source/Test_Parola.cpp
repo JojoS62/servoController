@@ -12,6 +12,10 @@ void setup(void)
     P.begin();
     P.setFrameBuffer(frameBuffer, sizeof(frameBuffer));
     P.displayScroll("Das ist die Einschaltmeldung.", PA_RIGHT, PA_SCROLL_LEFT, 50);
+    while (!P.displayAnimate()) { 
+        ThisThread::sleep_for(10ms); 
+    }
+    P.printf("Und die zweite Meldung.\n");
 }
 
 void loop(void)
@@ -19,6 +23,7 @@ void loop(void)
     if (P.displayAnimate()) {
         // animation done, restart
         P.printf("%i: Schalke ist der geilste Club der Welt :)\n", counter++);
+        P.setTextEffect(PA_SCROLL_UP, PA_SCROLL_UP);
     }
 
     ThisThread::sleep_for(10ms);
