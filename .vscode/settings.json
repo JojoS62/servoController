@@ -16,5 +16,6 @@
         "*.tcc": "cpp",
         "fstream": "cpp",
         "xstring": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Users\\sn\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
 }
