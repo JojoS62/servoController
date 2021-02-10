@@ -17,7 +17,7 @@ uint8_t *bufptr = buffer;
 
 BufferedSerial  serial(STDIO_UART_TX, STDIO_UART_RX, 115200);
 
-Console console(&serial);
+//Console console(&serial);
 
 void messageComplete()
 {
@@ -45,12 +45,11 @@ void on_rx_interrupt()
 
 int main() 
 {
-    printf("Hello from "  MBED_STRINGIFY(TARGET_NAME) "\n");
+    printf("Moin from "  MBED_STRINGIFY(TARGET_NAME) "\n");
     printf("Mbed OS version: %d.%d.%d\n\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
  
-    // Register a callback to process a Rx (receive) interrupt.
-    //serial.attach(&on_rx_interrupt, SerialBase::RxIrq);
-
+    serial.set_blocking(false);
+    
     servoTurn.period_ms(20);
     servoTurn.pulsewidth_us(posTurn);
 
@@ -59,7 +58,23 @@ int main()
 
     setup();
     while(true) {
+        char buffer;
+
         loop();
+        int nbytes = serial.read(&buffer, 1); 
+        if (nbytes > 0) {
+            switch (buffer) {
+                case 's': if (posTurn > 1000) posTurn -= stepSize; break;
+                case 'd': if (posTurn < 2000) posTurn += stepSize; break;
+                case 'a': if (posTilt > 1000) posTilt -= stepSize; break;
+                case 'y': if (posTilt < 2000) posTilt += stepSize; break;
+                case '0': posTurn = 1500; posTilt = 1500; break;
+            }
+
+            servoTurn.pulsewidth_us(posTurn);
+            servoTilt.pulsewidth_us(posTilt);
+        }
+
     }
 
     btnOld = btn0;
@@ -89,12 +104,13 @@ int main()
 #endif
 
         //queue->dispatch(20);
-        console.process();      // blocking for now
+        //console.process();      // blocking for now
 
         servoTurn.pulsewidth_us(posTurn);
         servoTilt.pulsewidth_us(posTilt);
 
         //ThisThread::sleep_for(20ms);
+        //ThisThread::sleep_for(2s);
         //queue->dispatch(50);
     }
 }
