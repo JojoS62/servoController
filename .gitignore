@@ -1,2 +1,2 @@
 httpServo/myapp/node_modules
-
+*.pyc

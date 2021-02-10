@@ -163,6 +163,29 @@
                 "--source",
                 "../../components"
             ]
+        },
+        {
+            "label": "export VSCode debug",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "command": "mbed",
+            "args": [
+                "export",
+                "-i",
+                "vscode_gcc_arm",
+                "--source",
+                ".",
+                "--source",
+                "../../mbed-os",
+                "--source",
+                "../../custom_targets",
+                "--source",
+                "../../libs",
+                "--profile",
+                "debug"
+            ]
         }
     ]
 }
