@@ -141,7 +141,7 @@
         },
         {
             "label": "echo",
-            "command": "echo \n\rworksspaceFolder: ${workspaceFolder}\n\rworkspaceFolderBasename: ${workspaceFolderBasename}"
+            "command": "echo \n\rworksspaceFolder: ${workspaceFolder}\n\rworkspaceFolderBasename: ${workspaceFolderBasename}\n\rworkspaceRoot: ${workspaceRoot}"
         },
         {
             "label": "list config options",

@@ -155,6 +155,36 @@
             "request": "launch",
             "servertype": "bmp",
             "executable": "../../BUILD/${workspaceFolderBasename}/Debug/${workspaceFolderBasename}.elf"
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "name": "release COM9",
+            "BMPGDBSerialPort": "//./COM9",
+            "interface": "swd",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "bmp",
+            "executable": "../../BUILD/${workspaceFolderBasename}/Release/${workspaceFolderBasename}.elf"
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "name": "develop COM9",
+            "BMPGDBSerialPort": "//./COM9",
+            "interface": "swd",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "bmp",
+            "executable": "../../BUILD/${workspaceFolderBasename}/Develop/${workspaceFolderBasename}.elf"
+        },
+        {
+            "cwd": "${workspaceFolder}",
+            "name": "debug COM9",
+            "BMPGDBSerialPort": "//./COM9",
+            "interface": "swd",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "bmp",
+            "executable": "../../BUILD/${workspaceFolderBasename}/Debug/${workspaceFolderBasename}.elf"
         }
     ]
 }
